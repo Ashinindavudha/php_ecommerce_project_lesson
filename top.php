@@ -1,3 +1,13 @@
+<?php
+    require('connection_inc.php');
+    require('function.php');
+    $cat_res = mysqli_query($con, "select * from categories where status = 1 order by categories asc");
+    $cat_arr = array();
+    //fetch categories
+    while($row = mysqli_fetch_assoc($cat_res)) {
+        $cat_arr[] = $row;
+    }
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -57,7 +67,14 @@
                                 <nav class="main__menu__nav hidden-xs hidden-sm">
                                     <ul class="main__menu">
                                         <li class="drop"><a href="index.php">Home</a></li>
-                                        
+                                        <?php 
+                                        foreach ($cat_arr as $list) {
+                                            ?>
+                                            
+                                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                                            <?php
+                                        }
+                                        ?>
                                         <li><a href="contact.php">contact</a></li>
                                     </ul>
                                 </nav>
@@ -66,6 +83,15 @@
                                     <nav id="mobile_dropdown">
                                         <ul>
                                             <li><a href="index.php">Home</a></li>
+                                            <li class="drop"><a href="index.php">Home</a></li>
+                                        <?php 
+                                        foreach ($cat_arr as $list) {
+                                            ?>
+                                            
+                                            <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                                            <?php
+                                        }
+                                        ?>
                                         
                                             <li><a href="contact.php">contact</a></li>
                                         </ul>
@@ -78,11 +104,11 @@
                                         <a href="#"><i class="icon-magnifier icons"></i></a>
                                     </div>
                                     <div class="header__account">
-                                        <a href="#"><i class="icon-user icons"></i></a>
+                                        <a href="login.php">Login/Register</a>
                                     </div>
                                     <div class="htc__shopping__cart">
                                         <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                        <a href="#"><span class="htc__qua">2</span></a>
+                                        <a href="#"><span class="htc__qua">0</span></a>
                                     </div>
                                 </div>
                             </div>

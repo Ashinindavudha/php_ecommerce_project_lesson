@@ -65,9 +65,9 @@ if (isset($_POST['submit'])) {
       }
    } 
    //image upload validation start
-   if ($_FILES['image']['type'] !='' && ($_FILES['image']['type'] !='image/png' || $_FILES['image']['type'] !='image/jpg' || $_FILES['image']['type'] !='image/jpeg')) {
-      $msg= "please select only png, jpg and jpeg image format";
-   }
+   // if ($_FILES['image']['type'] !='' && ($_FILES['image']['type'] !='image/png' || $_FILES['image']['type'] !='image/jpg' || $_FILES['image']['type'] !='image/jpeg')) {
+   //    $msg= "please select only png, jpg and jpeg image format";
+   // }
    // image upload validation end 
    
    if ($msg=='') {

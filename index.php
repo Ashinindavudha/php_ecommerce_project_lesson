@@ -1,77 +1,6 @@
 <?php require ('top.php'); ?>
         <div class="body__overlay"></div>
-        <!-- Start Offset Wrapper -->
-        <div class="offset__wrapper">
-            <!-- Start Search Popap -->
-            <div class="search__area">
-                <div class="container" >
-                    <div class="row" >
-                        <div class="col-md-12" >
-                            <div class="search__inner">
-                                <form action="#" method="get">
-                                    <input placeholder="Search here... " type="text">
-                                    <button type="submit"></button>
-                                </form>
-                                <div class="search__close__btn">
-                                    <span class="search__close__btn_icon"><i class="zmdi zmdi-close"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Search Popap -->
-            <!-- Start Cart Panel -->
-            <div class="shopping__cart">
-                <div class="shopping__cart__inner">
-                    <div class="offsetmenu__close__btn">
-                        <a href="#"><i class="zmdi zmdi-close"></i></a>
-                    </div>
-                    <div class="shp__cart__wrap">
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="ecomFrontEnd/images/product-2/sm-smg/1.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$105.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                        <div class="shp__single__product">
-                            <div class="shp__pro__thumb">
-                                <a href="#">
-                                    <img src="ecomFrontEnd/images/product-2/sm-smg/2.jpg" alt="product images">
-                                </a>
-                            </div>
-                            <div class="shp__pro__details">
-                                <h2><a href="product-details.html">Brone Candle</a></h2>
-                                <span class="quantity">QTY: 1</span>
-                                <span class="shp__price">$25.00</span>
-                            </div>
-                            <div class="remove__btn">
-                                <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <ul class="shoping__total">
-                        <li class="subtotal">Subtotal:</li>
-                        <li class="total__price">$130.00</li>
-                    </ul>
-                    <ul class="shopping__btn">
-                        <li><a href="cart.html">View Cart</a></li>
-                        <li class="shp__checkout"><a href="checkout.html">Checkout</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Cart Panel -->
-        </div>
-        <!-- End Offset Wrapper -->
+        
         <!-- Start Slider Area -->
         <div class="slider__container slider--one bg__cat--3">
             <div class="slide__container slider__activation__wrap owl-carousel">
@@ -140,222 +69,33 @@
                 <div class="htc__product__container">
                     <div class="row">
                         <div class="product__list clearfix mt--30">
+                        <?php 
+                        $get_product = get_product($con, 'latest', 4);
+                        //prx($get_product);
+                        foreach ($get_product as $list) {
+                            
+                        
+                        ?>
                             <!-- Start Single Category -->
                             <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
                                 <div class="category">
                                     <div class="ht__cat__thumb">
                                         <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/1.jpg" alt="product images">
+                                            <img src="<?php echo PRODUCT_IMAGE_SITE_PATH. $list['image'] ?>" alt="product images">
                                         </a>
                                     </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
+                                    
                                     <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">Largest Water Pot</a></h4>
+                                        <h4><a href="product-details.html"><?php echo $list['name'] ?></a></h4>
                                         <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
+                                            <li class="old__prize"><?php echo $list['mrp'] ?></li>
+                                            <li><?php echo $list['price'] ?></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/2.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">nemo enim ipsam</a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/3.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">Chair collection</a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/4.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">dummy Product name</a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/5.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">donec ac tempus nrb</a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="product-details.html">
-                                            <img src="ecomFrontEnd/images/product/6.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">Product Title Here </a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="ecomFrontEnd/product-details.html">
-                                            <img src="ecomFrontEnd/images/product/7.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="ecomFrontEnd/wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="ecomFrontEnd/cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="ecomFrontEnd/product-details.html">Product Title Here </a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
-                            <!-- Start Single Category -->
-                            <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
-                                <div class="category">
-                                    <div class="ht__cat__thumb">
-                                        <a href="ecomFrontEnd/product-details.html">
-                                            <img src="ecomFrontEnd/images/product/8.jpg" alt="product images">
-                                        </a>
-                                    </div>
-                                    <div class="fr__hover__info">
-                                        <ul class="product__action">
-                                            <li><a href="ecomFrontEnd/wishlist.html"><i class="icon-heart icons"></i></a></li>
-
-                                            <li><a href="ecomFrontEnd/cart.html"><i class="icon-handbag icons"></i></a></li>
-
-                                            <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="fr__product__inner">
-                                        <h4><a href="product-details.html">Product Title Here </a></h4>
-                                        <ul class="fr__pro__prize">
-                                            <li class="old__prize">$30.3</li>
-                                            <li>$25.9</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Category -->
+                            <!-- End Single Category --> 
+                            <?php } ?>                           
                         </div>
                     </div>
                 </div>
